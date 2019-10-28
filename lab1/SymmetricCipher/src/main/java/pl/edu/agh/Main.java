@@ -1,7 +1,6 @@
 package pl.edu.agh;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -9,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        long startTime = System.nanoTime();
 	    if (args[0].contains("enc")) {
 	        /* Encryption of file passed as Arg1 in to file passed as Arg2 */
 	        System.out.println("Encrypting file!");
@@ -62,6 +62,12 @@ public class Main {
             }
 
         } else System.out.println("Undefined command!");
+
+        long endTime = System.nanoTime();
+
+        double duration = (endTime-startTime)/1000000;
+
+        System.out.println("The "+args[0] +"cryption took "+duration+" miliseconds.");
 
 
     }
